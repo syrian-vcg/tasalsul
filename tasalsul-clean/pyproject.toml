@@ -1,0 +1,49 @@
+[build-system]
+requires      = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name        = "tasalsul"
+version     = "0.1.0"
+description = "تسلسل: أرشيف مضغوط ومشفّر للمسلسلات (.tslsl)"
+readme      = "README.md"
+license     = { text = "MIT" }
+authors     = [{ name = "Tasalsul Contributors" }]
+keywords    = ["archive", "encryption", "video", "series", "tslsl"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Security :: Cryptography",
+]
+requires-python = ">=3.9"
+dependencies    = ["cryptography>=42.0.0"]
+
+[project.optional-dependencies]
+dev  = ["pytest>=7.0", "pytest-cov"]
+docs = ["mkdocs-material"]
+
+[project.scripts]
+tslsl = "tasalsul.cli:main"
+
+[project.urls]
+Homepage  = "https://github.com/syrian-vcg/tasalsul"
+Repository= "https://github.com/syrian-vcg/tasalsul"
+Issues    = "https://github.com/syrian-vcg/tasalsul/issues"
+Changelog = "https://github.com/syrian-vcg/tasalsul/blob/main/CHANGELOG.md"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short"
